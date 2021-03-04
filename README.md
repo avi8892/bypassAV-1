@@ -4,6 +4,8 @@
 
 # 0x01 replace base64 shellcode
 
+`python go-shellcode.py payload.bin`
+
 ```
 import base64
 import random
