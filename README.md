@@ -28,6 +28,8 @@ else:
 
 # 0x02 comiple mian.go
 
+**`go build -ldflags="-w -s -H=windowsgui" shell.go`**
+
 
 ```
 package main
